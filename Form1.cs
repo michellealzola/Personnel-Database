@@ -16,5 +16,27 @@ namespace Personnel_Database
         {
             InitializeComponent();
         }
+
+        private void employeeBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.employeeBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.employeeDataSet);
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'employeeDataSet.Employee' table. You can move, or remove it, as needed.
+            this.employeeTableAdapter.Fill(this.employeeDataSet.Employee);
+            this.employeeDataGridView.DefaultCellStyle.Font = new Font("Arsenal", 14);
+            this.employeeDataGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Arsenal", 16);
+            
+        }
+
+        private void employeeDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
     }
 }
